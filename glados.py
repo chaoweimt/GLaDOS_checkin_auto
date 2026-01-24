@@ -33,7 +33,8 @@ if __name__ == '__main__':
             print(email+'\n----结果----\n'+mess+'\n----剩余('+time+')天')  # 日志输出
             sendContent += emai email+'\n----结果----\n'+mess+'\n----剩余('+time+')天\n'
         else:
-                msg = checkin.json()['message'] if 'message' in checkin.json() else 'Check-in failed'
+        resp_json = checkin.json()
+                msg = resp_json.get('message', 'Check-in failed')
                     print(msg)  # 日志输出
                     sendContent += email+'\n'+msg+'\n'
      #--------------------------------------------------------------------------------------------------------#   
