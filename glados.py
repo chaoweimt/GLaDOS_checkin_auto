@@ -33,8 +33,9 @@ if __name__ == '__main__':
             print(email+'\n----结果----\n'+mess+'\n----剩余('+time+')天')  # 日志输出
             sendContent += emai email+'\n----结果----\n'+mess+'\n----剩余('+time+')天\n'
         else:
-            requests.get('http://www.pushplus.plus/send?token=' + sckey + '&content='+email+'cookie已失效')
-            print('cookie已失效')  # 日志输出
+                msg = checkin.json()['message'] if 'message' in checkin.json() else 'Check-in failed'
+                    print(msg)  # 日志输出
+                    sendContent += email+'\n'+msg+'\n'
      #--------------------------------------------------------------------------------------------------------#   
     if sckey != "":
          requests.get('http://www.pushplus.plus/send?token=' + sckey + '&title='+email+'签到成功'+'&content='+sendContent)
