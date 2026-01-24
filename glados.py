@@ -30,8 +30,8 @@ if __name__ == '__main__':
         email = state.json()['data']['email']
         if checkin.json()['code']  == 0:
             mess = checkin.json()['message']
-            print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
-            sendContent += email+'----'+mess+'----剩余('+time+')天\n'
+            print(email+'\n----结果----\n'+mess+'\n----剩余('+time+')天')  # 日志输出
+            sendContent += emai email+'\n----结果----\n'+mess+'\n----剩余('+time+')天\n'
         else:
             requests.get('http://www.pushplus.plus/send?token=' + sckey + '&content='+email+'cookie已失效')
             print('cookie已失效')  # 日志输出
