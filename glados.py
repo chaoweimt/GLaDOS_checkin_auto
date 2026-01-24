@@ -28,7 +28,7 @@ if __name__ == '__main__':
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
         email = state.json()['data']['email']
-        if 'message' in checkin.text:
+        if checkin.json()['code']  == 0:
             mess = checkin.json()['message']
             print(email+'----结果--'+mess+'----剩余('+time+')天')  # 日志输出
             sendContent += email+'----'+mess+'----剩余('+time+')天\n'
