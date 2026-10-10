@@ -28,6 +28,7 @@
 | 变量名 | 必填 | 说明 |
 | :--- | :--- | :--- |
 | `GLADOS_COOKIE` | ✅ | 你的 GLaDOS 账号 Cookie。**多账号**请使用 `&` 符号连接，例如：`cookie1&cookie2` |
+| `GLADOS_USER_AGENT` | 建议 | 获取 Cookie 时同一浏览器的完整 User-Agent；GitHub Actions 在 Variables 中配置，浏览器升级后同步更新 |
 | `PUSHPLUS_TOKEN` | ❌ | (可选) [PushPlus](http://www.pushplus.plus/) 的 Token，用于接收签到结果通知 |
 
 ---
