@@ -69,7 +69,14 @@ if __name__ == "__main__":
             time = str(data["leftDays"]).split(".")[0]
             email = str(data["email"])
             mess = str(checkinData.get("message", "签到接口未返回结果"))
-            if checkinData.get("code") != 0:
+            # code=1 也可能表示当天已签到，仅认可已确认的提示。
+            alreadyChecked = (
+                checkinData.get("code") == 1
+                and mess == "Today's observation logged. Return tomorrow for more points."
+            )
+            if alreadyChecked:
+                mess = "今日已签到，无需重复签到"
+            elif checkinData.get("code") != 0:
                 failed = True
                 mess = "签到失败：" + mess
             result = email + "\n----结果----\n" + mess + "\n----剩余(" + time + ")天\n"
